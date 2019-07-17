@@ -18,12 +18,12 @@ public class League {
         player5.playerName = "Geoffrey Chaucer";
 
 
-        Player[] thePlayers = {player1, player2, player3, player4, player5};
+    Player[] thePlayers = {player1, player2, player3, player4, player5};
 
     Team team1 = new Team();
     team1.teamName = "The Greens";
     team1.playerArray = thePlayers;
-//     ---------------------------- TEAM 2 ----------------------------------
+
     Team team2 = new Team();
     team2.teamName = "The Reds";
     team2.playerArray = new Player[5];
@@ -42,18 +42,27 @@ public class League {
     team2.playerArray[4] = new Player();
     team2.playerArray[4].playerName = "Joster Dladla";
 
-    System.out.println("---------------------------- TEAM 1 ----------------------------------");
+    Game currGame = new Game();
+    currGame.homeTeam = team1;
+    currGame.awayTeam = team2;
+    
+    Goal goal1 = new Goal();
+    goal1.thePlayer = currGame.homeTeam.playerArray[2];
+    goal1.theTeam = currGame.homeTeam;
+    goal1.theTime = 55;
+    
+    Goal[] theGoals = {goal1};
+    currGame.goals = theGoals;
+    System.out.println("Goal scored after " +
+    currGame.goals[0].theTime + " mins by " +
+    currGame.goals[0].thePlayer.playerName + " of " +
+    currGame.goals[0].theTeam.teamName);
 
-    for (Player thePLayer : team1.playerArray){
-         System.out.println(thePLayer.playerName);
+    for(Player thePlayer : team2.playerArray){
+        if (thePlayer.playerName.matches(".*Dla.*")) {
+                System.out.println("Found " + thePlayer.playerName);
+            }
         }
-
-    System.out.println();
-    System.out.println("---------------------------- TEAM 2 ----------------------------------");
-
-    for (Player thePlayerName : team2.playerArray){
-            System.out.println(thePlayerName.playerName);
-        }
-
+    
     }
 }
