@@ -58,9 +58,17 @@ public class League {
     currGame.goals[0].thePlayer.playerName + " of " +
     currGame.goals[0].theTeam.teamName);
 
+    StringBuilder familyNameFirst = new StringBuilder();
     for(Player thePlayer : team2.playerArray){
         if (thePlayer.playerName.matches(".*Dla.*")) {
-                System.out.println("Found " + thePlayer.playerName);
+                System.out.println("Found        : " + thePlayer.playerName);
+                System.out.println("Last name is : " + thePlayer.playerName.split(" ")[1]);
+                String name[] = thePlayer.playerName.split(" ");
+                familyNameFirst.append(name[1]);
+                // System.out.println(familyNameFirst.append(name[1]));
+                familyNameFirst.append(", ");
+                familyNameFirst.append(name[0]);
+                System.out.println(familyNameFirst);
             }
         }
     
